@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slideshow</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: black;
+      }
+      .slideshow-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slideshow-container">
+      <div
+        class="slide"
+        style="
+          background-image: url('assets/1_YearoftheDragon_collage_ShelbyBonilla.jpg');
+        "
+      ></div>
+      <div
+        class="slide"
+        style="
+          background-image: url('assets/2_YearoftheDragon_collage_ShelbyBonilla.jpg');
+        "
+      ></div>
+      <div
+        class="slide"
+        style="background-image: url('assets/3_Estvz-Palomino_DIG.jpeg')"
+      ></div>
+      <div
+        class="slide"
+        style="background-image: url('assets/4_Estvz-Palomino_DIG.jpeg')"
+      ></div>
+    </div>
+
+    <script>
+      let slideIndex = 0; // start with the first image
+      showSlides();
+
+      function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("slide");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        slides[slideIndex - 1].style.display = "block";
+        if (slideIndex === 1 || slideIndex === 3) {
+          setTimeout(showSlides, 7000); // Change image every 7 seconds
+        } else {
+          setTimeout(showSlides, 23000); // Change image every 23 seconds
+        }
+      }
+    </script>
+  </body>
+</html>
